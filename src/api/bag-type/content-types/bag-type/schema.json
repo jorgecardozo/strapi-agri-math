@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bag_types",
+  "info": {
+    "singularName": "bag-type",
+    "pluralName": "bag-types",
+    "displayName": "BagType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "biginteger"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    }
+  }
+}

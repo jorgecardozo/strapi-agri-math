@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "baggings",
+  "info": {
+    "singularName": "bagging",
+    "pluralName": "baggings",
+    "displayName": "Bagging",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "text"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "bag_price": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bag-price.bag-price"
+    },
+    "count": {
+      "type": "biginteger"
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person"
+    }
+  }
+}

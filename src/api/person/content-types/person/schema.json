@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "people",
+  "info": {
+    "singularName": "person",
+    "pluralName": "people",
+    "displayName": "Person",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "dni": {
+      "type": "string"
+    },
+    "alias": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
