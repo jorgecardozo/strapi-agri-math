@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "farm_fields",
+  "info": {
+    "singularName": "farm-field",
+    "pluralName": "farm-fields",
+    "displayName": "FarmField"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

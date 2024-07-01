@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "daily_prices",
+  "info": {
+    "singularName": "daily-price",
+    "pluralName": "daily-prices",
+    "displayName": "DailyPrice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "bag_prices",
+  "collectionName": "harvest_prices",
   "info": {
-    "singularName": "bag-price",
-    "pluralName": "bag-prices",
-    "displayName": "BagPrice",
+    "singularName": "harvest-price",
+    "pluralName": "harvest-prices",
+    "displayName": "HarvestPrice",
     "description": ""
   },
   "options": {
@@ -18,24 +18,19 @@
     "price": {
       "type": "decimal"
     },
-    "bag_size": {
+    "labor_unit": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::bag-size.bag-size"
-    },
-    "bag_type": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::bag-type.bag-type"
-    },
-    "active": {
-      "type": "boolean",
-      "default": true
+      "target": "api::labor-unit.labor-unit"
     },
     "product": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

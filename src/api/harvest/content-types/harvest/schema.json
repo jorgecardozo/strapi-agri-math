@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "baggings",
+  "collectionName": "harvests",
   "info": {
-    "singularName": "bagging",
-    "pluralName": "baggings",
-    "displayName": "Bagging",
+    "singularName": "harvest",
+    "pluralName": "harvests",
+    "displayName": "Harvest",
     "description": ""
   },
   "options": {
@@ -18,16 +18,6 @@
     "comments": {
       "type": "text"
     },
-    "product": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::product.product"
-    },
-    "bag_price": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::bag-price.bag-price"
-    },
     "count": {
       "type": "biginteger"
     },
@@ -35,6 +25,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::person.person"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "harvest_price": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::harvest-price.harvest-price"
     },
     "farm_field": {
       "type": "relation",

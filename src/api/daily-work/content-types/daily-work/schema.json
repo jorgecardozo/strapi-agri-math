@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "baggings",
+  "collectionName": "daily_works",
   "info": {
-    "singularName": "bagging",
-    "pluralName": "baggings",
-    "displayName": "Bagging",
+    "singularName": "daily-work",
+    "pluralName": "daily-works",
+    "displayName": "DailyWork",
     "description": ""
   },
   "options": {
@@ -18,23 +18,23 @@
     "comments": {
       "type": "text"
     },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person"
+    },
     "product": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product"
     },
-    "bag_price": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::bag-price.bag-price"
-    },
     "count": {
       "type": "biginteger"
     },
-    "person": {
+    "daily_price": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::person.person"
+      "target": "api::daily-price.daily-price"
     },
     "farm_field": {
       "type": "relation",

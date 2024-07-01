@@ -823,7 +823,7 @@ export interface ApiBagPriceBagPrice extends Schema.CollectionType {
   };
   attributes: {
     description: Attribute.String;
-    price: Attribute.Float;
+    price: Attribute.Decimal;
     bag_size: Attribute.Relation<
       'api::bag-price.bag-price',
       'oneToOne',
@@ -964,6 +964,11 @@ export interface ApiBaggingBagging extends Schema.CollectionType {
       'oneToOne',
       'api::person.person'
     >;
+    farm_field: Attribute.Relation<
+      'api::bagging.bagging',
+      'oneToOne',
+      'api::farm-field.farm-field'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -975,6 +980,128 @@ export interface ApiBaggingBagging extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::bagging.bagging',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDailyPriceDailyPrice extends Schema.CollectionType {
+  collectionName: 'daily_prices';
+  info: {
+    singularName: 'daily-price';
+    pluralName: 'daily-prices';
+    displayName: 'DailyPrice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    price: Attribute.Decimal;
+    product: Attribute.Relation<
+      'api::daily-price.daily-price',
+      'oneToOne',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::daily-price.daily-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::daily-price.daily-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDailyWorkDailyWork extends Schema.CollectionType {
+  collectionName: 'daily_works';
+  info: {
+    singularName: 'daily-work';
+    pluralName: 'daily-works';
+    displayName: 'DailyWork';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    comments: Attribute.Text;
+    person: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'api::person.person'
+    >;
+    product: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'api::product.product'
+    >;
+    count: Attribute.BigInteger;
+    daily_price: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'api::daily-price.daily-price'
+    >;
+    farm_field: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'api::farm-field.farm-field'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFarmFieldFarmField extends Schema.CollectionType {
+  collectionName: 'farm_fields';
+  info: {
+    singularName: 'farm-field';
+    pluralName: 'farm-fields';
+    displayName: 'FarmField';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    address: Attribute.String;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::farm-field.farm-field',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::farm-field.farm-field',
       'oneToOne',
       'admin::user'
     > &
@@ -1014,6 +1141,133 @@ export interface ApiGameGame extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::game.game', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::game.game', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHarvestHarvest extends Schema.CollectionType {
+  collectionName: 'harvests';
+  info: {
+    singularName: 'harvest';
+    pluralName: 'harvests';
+    displayName: 'Harvest';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    comments: Attribute.Text;
+    count: Attribute.BigInteger;
+    person: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'api::person.person'
+    >;
+    product: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'api::product.product'
+    >;
+    harvest_price: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'api::harvest-price.harvest-price'
+    >;
+    farm_field: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'api::farm-field.farm-field'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHarvestPriceHarvestPrice extends Schema.CollectionType {
+  collectionName: 'harvest_prices';
+  info: {
+    singularName: 'harvest-price';
+    pluralName: 'harvest-prices';
+    displayName: 'HarvestPrice';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    price: Attribute.Decimal;
+    labor_unit: Attribute.Relation<
+      'api::harvest-price.harvest-price',
+      'oneToOne',
+      'api::labor-unit.labor-unit'
+    >;
+    product: Attribute.Relation<
+      'api::harvest-price.harvest-price',
+      'oneToOne',
+      'api::product.product'
+    >;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::harvest-price.harvest-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::harvest-price.harvest-price',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLaborUnitLaborUnit extends Schema.CollectionType {
+  collectionName: 'labor_units';
+  info: {
+    singularName: 'labor-unit';
+    pluralName: 'labor-units';
+    displayName: 'LaborUnit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    type: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::labor-unit.labor-unit',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::labor-unit.labor-unit',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1225,7 +1479,13 @@ declare module '@strapi/types' {
       'api::bag-size.bag-size': ApiBagSizeBagSize;
       'api::bag-type.bag-type': ApiBagTypeBagType;
       'api::bagging.bagging': ApiBaggingBagging;
+      'api::daily-price.daily-price': ApiDailyPriceDailyPrice;
+      'api::daily-work.daily-work': ApiDailyWorkDailyWork;
+      'api::farm-field.farm-field': ApiFarmFieldFarmField;
       'api::game.game': ApiGameGame;
+      'api::harvest.harvest': ApiHarvestHarvest;
+      'api::harvest-price.harvest-price': ApiHarvestPriceHarvestPrice;
+      'api::labor-unit.labor-unit': ApiLaborUnitLaborUnit;
       'api::order.order': ApiOrderOrder;
       'api::person.person': ApiPersonPerson;
       'api::platform.platform': ApiPlatformPlatform;
