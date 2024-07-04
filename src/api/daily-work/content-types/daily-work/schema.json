@@ -40,6 +40,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::farm-field.farm-field"
+    },
+    "date": {
+      "type": "date"
     }
   }
 }

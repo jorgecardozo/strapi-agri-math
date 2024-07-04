@@ -40,6 +40,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::farm-field.farm-field"
+    },
+    "date": {
+      "type": "date",
+      "default": "2024-07-03"
     }
   }
 }
