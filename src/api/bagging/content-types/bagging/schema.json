@@ -44,6 +44,9 @@
     "date": {
       "type": "date",
       "default": "2024-07-03"
+    },
+    "status": {
+      "type": "integer"
     }
   }
 }

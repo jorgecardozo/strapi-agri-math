@@ -970,6 +970,7 @@ export interface ApiBaggingBagging extends Schema.CollectionType {
       'api::farm-field.farm-field'
     >;
     date: Attribute.Date & Attribute.DefaultTo<'2024-07-03'>;
+    status: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1183,6 +1184,8 @@ export interface ApiHarvestHarvest extends Schema.CollectionType {
       'api::farm-field.farm-field'
     >;
     date: Attribute.Date & Attribute.DefaultTo<'2024-07-03'>;
+    meter_count: Attribute.Decimal;
+    status: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1307,6 +1310,65 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPaymentInvoicePaymentInvoice extends Schema.CollectionType {
+  collectionName: 'payment_invoices';
+  info: {
+    singularName: 'payment-invoice';
+    pluralName: 'payment-invoices';
+    displayName: 'PaymentInvoice';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.String;
+    baggings: Attribute.Relation<
+      'api::payment-invoice.payment-invoice',
+      'oneToMany',
+      'api::bagging.bagging'
+    >;
+    daily_works: Attribute.Relation<
+      'api::payment-invoice.payment-invoice',
+      'oneToMany',
+      'api::daily-work.daily-work'
+    >;
+    harvests: Attribute.Relation<
+      'api::payment-invoice.payment-invoice',
+      'oneToMany',
+      'api::harvest.harvest'
+    >;
+    user: Attribute.Relation<
+      'api::payment-invoice.payment-invoice',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    date: Attribute.Date;
+    name: Attribute.String;
+    last_name: Attribute.String;
+    farm_field: Attribute.String;
+    count: Attribute.BigInteger;
+    price: Attribute.Decimal;
+    total: Attribute.Decimal;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::payment-invoice.payment-invoice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::payment-invoice.payment-invoice',
       'oneToOne',
       'admin::user'
     > &
@@ -1490,6 +1552,7 @@ declare module '@strapi/types' {
       'api::harvest-price.harvest-price': ApiHarvestPriceHarvestPrice;
       'api::labor-unit.labor-unit': ApiLaborUnitLaborUnit;
       'api::order.order': ApiOrderOrder;
+      'api::payment-invoice.payment-invoice': ApiPaymentInvoicePaymentInvoice;
       'api::person.person': ApiPersonPerson;
       'api::platform.platform': ApiPlatformPlatform;
       'api::product.product': ApiProductProduct;

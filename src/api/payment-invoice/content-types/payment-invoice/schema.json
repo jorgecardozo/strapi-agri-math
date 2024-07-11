@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_invoices",
+  "info": {
+    "singularName": "payment-invoice",
+    "pluralName": "payment-invoices",
+    "displayName": "PaymentInvoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "baggings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bagging.bagging"
+    },
+    "daily_works": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::daily-work.daily-work"
+    },
+    "harvests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::harvest.harvest"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "date": {
+      "type": "date"
+    },
+    "name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "farm_field": {
+      "type": "string"
+    },
+    "count": {
+      "type": "biginteger"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    }
+  }
+}
