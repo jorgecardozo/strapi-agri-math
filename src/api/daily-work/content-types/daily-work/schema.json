@@ -43,6 +43,13 @@
     },
     "date": {
       "type": "date"
+    },
+    "hours": {
+      "type": "decimal"
+    },
+    "minutes": {
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }

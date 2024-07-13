@@ -995,6 +995,7 @@ export interface ApiDailyPriceDailyPrice extends Schema.CollectionType {
     singularName: 'daily-price';
     pluralName: 'daily-prices';
     displayName: 'DailyPrice';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1008,6 +1009,9 @@ export interface ApiDailyPriceDailyPrice extends Schema.CollectionType {
       'oneToOne',
       'api::product.product'
     >;
+    hours_per_day: Attribute.BigInteger & Attribute.DefaultTo<'8'>;
+    hour_price: Attribute.Decimal & Attribute.DefaultTo<0>;
+    minute_price: Attribute.Decimal & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1062,6 +1066,8 @@ export interface ApiDailyWorkDailyWork extends Schema.CollectionType {
       'api::farm-field.farm-field'
     >;
     date: Attribute.Date;
+    hours: Attribute.Decimal;
+    minutes: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

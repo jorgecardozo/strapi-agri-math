@@ -4,7 +4,8 @@
   "info": {
     "singularName": "daily-price",
     "pluralName": "daily-prices",
-    "displayName": "DailyPrice"
+    "displayName": "DailyPrice",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +26,18 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::product.product"
+    },
+    "hours_per_day": {
+      "type": "biginteger",
+      "default": "8"
+    },
+    "hour_price": {
+      "type": "decimal",
+      "default": 0
+    },
+    "minute_price": {
+      "type": "decimal",
+      "default": 0
     }
   }
 }
