@@ -4,7 +4,8 @@
   "info": {
     "singularName": "farm-field",
     "pluralName": "farm-fields",
-    "displayName": "FarmField"
+    "displayName": "FarmField",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,6 +21,11 @@
     "active": {
       "type": "boolean",
       "default": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

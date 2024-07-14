@@ -59,6 +59,9 @@
     },
     "total": {
       "type": "decimal"
+    },
+    "type": {
+      "type": "string"
     }
   }
 }

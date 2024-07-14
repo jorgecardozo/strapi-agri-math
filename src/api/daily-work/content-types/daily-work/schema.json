@@ -50,6 +50,15 @@
     "minutes": {
       "type": "biginteger",
       "default": "0"
+    },
+    "status": {
+      "type": "integer",
+      "default": 0
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

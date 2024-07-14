@@ -4,7 +4,8 @@
   "info": {
     "singularName": "labor-unit",
     "pluralName": "labor-units",
-    "displayName": "LaborUnit"
+    "displayName": "LaborUnit",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,11 @@
     },
     "type": {
       "type": "integer"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

@@ -840,6 +840,11 @@ export interface ApiBagPriceBagPrice extends Schema.CollectionType {
       'oneToOne',
       'api::product.product'
     >;
+    user: Attribute.Relation<
+      'api::bag-price.bag-price',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -878,6 +883,11 @@ export interface ApiBagSizeBagSize extends Schema.CollectionType {
       'oneToOne',
       'api::product.product'
     >;
+    user: Attribute.Relation<
+      'api::bag-size.bag-size',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -915,6 +925,11 @@ export interface ApiBagTypeBagType extends Schema.CollectionType {
       'api::bag-type.bag-type',
       'oneToOne',
       'api::product.product'
+    >;
+    user: Attribute.Relation<
+      'api::bag-type.bag-type',
+      'oneToOne',
+      'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -971,6 +986,11 @@ export interface ApiBaggingBagging extends Schema.CollectionType {
     >;
     date: Attribute.Date & Attribute.DefaultTo<'2024-07-03'>;
     status: Attribute.Integer;
+    user: Attribute.Relation<
+      'api::bagging.bagging',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1012,6 +1032,11 @@ export interface ApiDailyPriceDailyPrice extends Schema.CollectionType {
     hours_per_day: Attribute.BigInteger & Attribute.DefaultTo<'8'>;
     hour_price: Attribute.Decimal & Attribute.DefaultTo<0>;
     minute_price: Attribute.Decimal & Attribute.DefaultTo<0>;
+    user: Attribute.Relation<
+      'api::daily-price.daily-price',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1068,6 +1093,12 @@ export interface ApiDailyWorkDailyWork extends Schema.CollectionType {
     date: Attribute.Date;
     hours: Attribute.Decimal;
     minutes: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    status: Attribute.Integer & Attribute.DefaultTo<0>;
+    user: Attribute.Relation<
+      'api::daily-work.daily-work',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1092,6 +1123,7 @@ export interface ApiFarmFieldFarmField extends Schema.CollectionType {
     singularName: 'farm-field';
     pluralName: 'farm-fields';
     displayName: 'FarmField';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1100,6 +1132,11 @@ export interface ApiFarmFieldFarmField extends Schema.CollectionType {
     description: Attribute.String;
     address: Attribute.String;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    user: Attribute.Relation<
+      'api::farm-field.farm-field',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1192,6 +1229,11 @@ export interface ApiHarvestHarvest extends Schema.CollectionType {
     date: Attribute.Date & Attribute.DefaultTo<'2024-07-03'>;
     meter_count: Attribute.Decimal;
     status: Attribute.Integer;
+    user: Attribute.Relation<
+      'api::harvest.harvest',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1235,6 +1277,11 @@ export interface ApiHarvestPriceHarvestPrice extends Schema.CollectionType {
       'api::product.product'
     >;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    user: Attribute.Relation<
+      'api::harvest-price.harvest-price',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1259,6 +1306,7 @@ export interface ApiLaborUnitLaborUnit extends Schema.CollectionType {
     singularName: 'labor-unit';
     pluralName: 'labor-units';
     displayName: 'LaborUnit';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1266,6 +1314,11 @@ export interface ApiLaborUnitLaborUnit extends Schema.CollectionType {
   attributes: {
     description: Attribute.String;
     type: Attribute.Integer;
+    user: Attribute.Relation<
+      'api::labor-unit.labor-unit',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1364,6 +1417,7 @@ export interface ApiPaymentInvoicePaymentInvoice extends Schema.CollectionType {
     count: Attribute.BigInteger;
     price: Attribute.Decimal;
     total: Attribute.Decimal;
+    type: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1405,6 +1459,7 @@ export interface ApiPersonPerson extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

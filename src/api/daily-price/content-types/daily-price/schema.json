@@ -38,6 +38,11 @@
     "minute_price": {
       "type": "decimal",
       "default": 0
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
