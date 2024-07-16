@@ -1314,11 +1314,6 @@ export interface ApiLaborUnitLaborUnit extends Schema.CollectionType {
   attributes: {
     description: Attribute.String;
     type: Attribute.Integer;
-    user: Attribute.Relation<
-      'api::labor-unit.labor-unit',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
