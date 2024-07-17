@@ -62,6 +62,21 @@
     },
     "type": {
       "type": "string"
+    },
+    "minutes": {
+      "type": "biginteger"
+    },
+    "hours": {
+      "type": "biginteger"
+    },
+    "hour_price": {
+      "type": "decimal"
+    },
+    "minute_price": {
+      "type": "decimal"
+    },
+    "farm_field_id": {
+      "type": "biginteger"
     }
   }
 }

@@ -1413,6 +1413,11 @@ export interface ApiPaymentInvoicePaymentInvoice extends Schema.CollectionType {
     price: Attribute.Decimal;
     total: Attribute.Decimal;
     type: Attribute.String;
+    minutes: Attribute.BigInteger;
+    hours: Attribute.BigInteger;
+    hour_price: Attribute.Decimal;
+    minute_price: Attribute.Decimal;
+    farm_field_id: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
