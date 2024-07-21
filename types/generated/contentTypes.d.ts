@@ -845,6 +845,8 @@ export interface ApiBagPriceBagPrice extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    owner_price: Attribute.Decimal;
+    employer_price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1037,6 +1039,10 @@ export interface ApiDailyPriceDailyPrice extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    owner_price: Attribute.Decimal;
+    owner_hour_price: Attribute.Decimal;
+    owner_minute_price: Attribute.Decimal;
+    employer_price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1282,6 +1288,8 @@ export interface ApiHarvestPriceHarvestPrice extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    owner_price: Attribute.Decimal;
+    employer_price: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

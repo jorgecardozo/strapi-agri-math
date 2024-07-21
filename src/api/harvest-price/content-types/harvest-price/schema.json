@@ -36,6 +36,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "owner_price": {
+      "type": "decimal"
+    },
+    "employer_price": {
+      "type": "decimal"
     }
   }
 }
