@@ -55,6 +55,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

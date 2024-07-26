@@ -993,6 +993,7 @@ export interface ApiBaggingBagging extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1105,6 +1106,7 @@ export interface ApiDailyWorkDailyWork extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1240,6 +1242,7 @@ export interface ApiHarvestHarvest extends Schema.CollectionType {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
+    active: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
