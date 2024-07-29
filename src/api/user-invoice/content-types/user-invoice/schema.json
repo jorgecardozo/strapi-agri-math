@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_invoices",
+  "info": {
+    "singularName": "user-invoice",
+    "pluralName": "user-invoices",
+    "displayName": "UserInvoice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company_name": {
+      "type": "string"
+    },
+    "commercial_address": {
+      "type": "string"
+    },
+    "iva_condition": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_invoice"
+    },
+    "cuit": {
+      "type": "string"
+    },
+    "start_date_activities": {
+      "type": "date"
+    },
+    "responsible_taxpayer": {
+      "type": "string"
+    }
+  }
+}

@@ -752,6 +752,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     >;
     firstname: Attribute.String;
     lastname: Attribute.String;
+    user_invoice: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::user-invoice.user-invoice'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1554,6 +1559,46 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiUserInvoiceUserInvoice extends Schema.CollectionType {
+  collectionName: 'user_invoices';
+  info: {
+    singularName: 'user-invoice';
+    pluralName: 'user-invoices';
+    displayName: 'UserInvoice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company_name: Attribute.String;
+    commercial_address: Attribute.String;
+    iva_condition: Attribute.String;
+    user: Attribute.Relation<
+      'api::user-invoice.user-invoice',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    cuit: Attribute.String;
+    start_date_activities: Attribute.Date;
+    responsible_taxpayer: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::user-invoice.user-invoice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::user-invoice.user-invoice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWishlistWishlist extends Schema.CollectionType {
   collectionName: 'wishlists';
   info: {
@@ -1628,6 +1673,7 @@ declare module '@strapi/types' {
       'api::person.person': ApiPersonPerson;
       'api::platform.platform': ApiPlatformPlatform;
       'api::product.product': ApiProductProduct;
+      'api::user-invoice.user-invoice': ApiUserInvoiceUserInvoice;
       'api::wishlist.wishlist': ApiWishlistWishlist;
     }
   }
